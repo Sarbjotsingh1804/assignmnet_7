@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo List</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="box">
+            <h1>Todo List</h1>
+        </div>
+        <div class="box">
+            <% for(var i=0; i<ejes.length; i++){ %>
+                <div class="item">
+                    <input type="checkbox" onclick="handleCheckboxClick(this)">
+                    <p id="item-<%= i %>" style="display: inline;"><%= ejes[i] %></p>
+                    <script>
+                        function handleCheckboxClick(checkbox) {
+                            const paragraph = checkbox.nextElementSibling;
+                            if (checkbox.checked) {
+                                paragraph.style.textDecoration = "line-through";
+                            } else {
+                                paragraph.style.textDecoration = "none";
+                            }
+                        }
+                    </script>
+                </div>
+                
+            <% } %>
+            <form action="/" method= "POST">
+                <input type="text" name="todo" placeholder="Add a new todo" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        
+    </body>
+</html>
